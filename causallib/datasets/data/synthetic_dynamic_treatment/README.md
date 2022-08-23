@@ -2,9 +2,9 @@
 
 Data is generated according to 
 
-$$ A \sim Binomial(\text{invLogit}(X1_{t-1} - \bar{x1})/10 - A_{t-1}) $$
-$$ X1 \sim Normal(A_t + X1_{t-1}, 1) $$
-$$ X2 \sim Normal(0, 1) $$
+$$ A \sim Binomial(\text{invLogit}(X1_{t-1} - \bar{x1})/10 - A_{t-1}) $$  
+$$ X1 \sim Normal(A_t + X1_{t-1}, 1) $$  
+$$ X2 \sim Normal(0, 1) $$  
 
 Data contains 5 attributes: `id, time, treatment (A), cov1 (X1), cov2 (X2)`
 
