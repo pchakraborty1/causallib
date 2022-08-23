@@ -34,6 +34,13 @@ Currently contributed methods are:
    from causallib.contrib.faissknn import FaissNearestNeighbors
    ```
 
+2. GFormula for dynamic treatment effect.
+
+   ```python
+   from causallib.contrib.GFormula import GFormula
+   from causallib.contrib.treament_strategy import Observational, CFBernoulli
+   ```
+
 ## Dependencies
 Each model might have slightly different requirements.  
 Refer to the documentation of each model for the additional packages it requires.  
