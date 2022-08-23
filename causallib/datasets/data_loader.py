@@ -176,7 +176,7 @@ def load_synth_dynamic_treat(observational=True):
     """
     dir_name = os.path.join(DATA_DIR_NAME, "synthetic_dynamic_treatment")
 
-    paylod = dict()
+    payload = dict()
     expt_name = 'simx2'
     if observational:
         sections = ['train', 'val', 'test']
