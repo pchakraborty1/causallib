@@ -3,7 +3,7 @@
 import abc
 import pandas as pd
 from abc import abstractmethod
-from typing import Optional, Any, OrderedDict, Callable
+from typing import Optional, Any, Union, OrderedDict, Callable
 
 from causallib.estimation.base_estimator import IndividualOutcomeEstimator
 

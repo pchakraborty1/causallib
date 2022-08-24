@@ -47,7 +47,11 @@ class Observational(TreatmentStrategy):
         prev_x = prev_x[:, [0]]
         all_x = all_x[:, :, [0]]
         # _diff_x = np.atleast_2d(prev_x - all_x.mean(axis=1))
-        x = (prev_x - all_x.mean(axis=1))/10 - prev_a
+        if np.size(all_x):
+            mean_x = all_x.mean(axis=1)
+        else:
+            mean_x = prev_x
+        x = (prev_x - mean_x)/10 - prev_a
         p = np.exp(x) / (1 + np.exp(x))
         out = np.random.binomial(1, p)
         out = np.expand_dims(out, axis=2)

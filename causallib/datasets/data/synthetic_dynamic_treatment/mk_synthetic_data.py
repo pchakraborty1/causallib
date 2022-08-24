@@ -54,9 +54,9 @@ def generate_sample(rep, strategy=OBSV_STRATEGY):
     X[0] = np.random.normal(A[0])
     X2[0] = np.random.normal()
     
-    min_x = X[1]
-    mean_x = X[1]
-    mean_A = A[1]
+    min_x = X[0]
+    mean_x = X[0]
+    mean_A = A[0]
 
     for i in range(1, rep):
         if strategy == OBSV_STRATEGY:
@@ -239,7 +239,7 @@ def main():
     fOut_shifted = fOut.parent / f'{EXPT_NAME}_{strategy}_shifted.csv'
 
     np.random.seed(seed)
-    data = np.vstack([generate_sample(num_timepoints)  # generate data for each sample
+    data = np.vstack([generate_sample(num_timepoints, strategy=strategy)  # generate data for each sample
                       for i in range(num_samples)])
 
     # Massaging data into proper dataframe
