@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
 from abc import abstractmethod, ABC
-from typing import Callable
+from typing import Optional, Any, Callable
 import numpy as np
 
 
@@ -21,7 +23,8 @@ class Observational(TreatmentStrategy):
         Observational Treatment Strategy
     """
     def __init__(self,
-                 inverse_transform: Callable,
+                 treatment_models: Any,
+                 #  inverse_transform: Callable,
                  **kwargs):
         """
             inverse_transform (Callable): Scaler class that compute the means and std to be used for later scaling.
@@ -29,15 +32,16 @@ class Observational(TreatmentStrategy):
             kwargs (dict): Optional kwargs for init call in TreatmentStrategy
         """
         super(TreatmentStrategy, self).__init__(**kwargs)
-        self.inverse_transform = inverse_transform
+        self.treatment_models = treatment_models 
+        #  self.inverse_transform = inverse_transform
 
     def get_action(self,
                    prev_x,
                    all_x,
                    prev_a):
-        if self.inverse_transform is not None:
-            prev_x = self.inverse_transform(prev_x.data)
-            all_x = self.inverse_transform(all_x.data)
+        # if self.inverse_transform is not None:
+        #     prev_x = self.inverse_transform(prev_x.data)
+        #     all_x = self.inverse_transform(all_x.data)
 
         # rbinom(1,1,invlogit((X[i-1]-mean_x)/10.-A[i-1]))
         prev_x = prev_x[:, [0]]

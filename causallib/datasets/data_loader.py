@@ -183,14 +183,14 @@ def load_synth_dynamic_treat(observational=True):
         for s in sections:
             fName = f"{expt_name}_observational_{s}.csv"
             data = load_data_file(fName, dir_name)
-            X = data[['id', 'time', 'cov1', 'cov2']].set_index(['id', 'time'])
-            a = data[['id', 'time', 'treatment']].set_index(['id', 'time'])
+            X = data[['id', 'time', 'cov1', 'cov2']].copy()
+            a = data[['id', 'time', 'treatment']].copy()
             payload[s] = (X, a)
     else:
         fName = f"{expt_name}_never-treat.csv"
         data = load_data_file(fName, dir_name)
-        X = data[['id', 'time', 'cov1', 'cov2']].set_index(['id', 'time'])
-        a = data[['id', 'time', 'treatment']].set_index(['id', 'time'])
+        X = data[['id', 'time', 'cov1', 'cov2']].copy()
+        a = data[['id', 'time', 'treatment']].copy()
         payload['test'] = (X, a)
     return payload
 

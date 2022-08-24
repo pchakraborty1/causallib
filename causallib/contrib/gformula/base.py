@@ -44,7 +44,7 @@ class GMethodBase(TimeVaryingBaseEstimator):
         GFormula base Estimator
     """
     def __init__(self,
-                 treatment_model: Any,
+                 treatment_models: OrderedDict,
                  covariate_models: OrderedDict,
                  outcome_model: Optional[Any]=None,
                  refit_models=True):
@@ -61,7 +61,7 @@ class GMethodBase(TimeVaryingBaseEstimator):
 
         """
         super(GMethodBase, self).__init__(lambda **x: None)
-        self.treatment_model = treatment_model
+        self.treatment_models = treatment_models
         self.covariate_models = covariate_models
         self.outcome_model = outcome_model
         self.refit_models = refit_models
